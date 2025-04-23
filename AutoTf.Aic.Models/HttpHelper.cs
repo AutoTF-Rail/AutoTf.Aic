@@ -16,8 +16,9 @@ public static class HttpHelper
 
             return await response.Content.ReadAsStringAsync();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            Console.WriteLine(ex.ToString());
             if(reThrow)
                 throw;
             return "";
