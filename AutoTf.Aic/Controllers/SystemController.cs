@@ -18,6 +18,12 @@ public class SystemController : ControllerBase
         _lifetime = lifetime;
     }
     
+    [HttpGet("available")]
+    public ActionResult<bool?> Available()
+    {
+        return Statics.IsCentralBridgeAvailable;
+    }
+    
     [HttpGet("version")]
     public ActionResult<string> Version()
     {
