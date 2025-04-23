@@ -26,7 +26,7 @@ public class OllamaService : IHostedService
 
     public async Task<string> GetResponse(string message, bool keep = false)
     {
-        List<Message> tempMessages = _previousMessages;
+        List<Message> tempMessages = new List<Message>(_previousMessages);
         tempMessages.Add(new Message(ChatRole.User, message));
 
         IAsyncEnumerable<ChatResponseStream?> rawResponse = _ollama.ChatAsync(new ChatRequest()
