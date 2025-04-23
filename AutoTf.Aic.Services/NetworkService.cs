@@ -34,7 +34,7 @@ public class NetworkService : IHostedService
 
     private async void CentralBridgeTimerElapsed(object? sender, ElapsedEventArgs e)
     {
-        Console.WriteLine(await HttpHelper.SendGetString("192.168.0.1/information/trainId", false));;
+        Console.WriteLine(await HttpHelper.SendGetString("http://192.168.0.1/information/trainId", false));;
         bool newFoundState = false;
         
         if (Statics.IsCentralBridgeAvailable != newFoundState)
@@ -53,7 +53,7 @@ public class NetworkService : IHostedService
         
             NetworkConfigurator.SetStaticIpAddress("192.168.0.3", "24");
         
-            _logger.Log("Set local IP to 192.168.0.1/24.");
+            _logger.Log("Set local IP to 192.168.0.3/24.");
         }
         catch (Exception e)
         {

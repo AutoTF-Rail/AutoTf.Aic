@@ -18,7 +18,6 @@ public static class HttpHelper
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.ToString());
             if(reThrow)
                 throw;
             return "";
