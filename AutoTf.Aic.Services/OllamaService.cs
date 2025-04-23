@@ -24,7 +24,7 @@ public class OllamaService : IHostedService
         // TODO: Preheat model like this?
         _ollama.ChatAsync(new ChatRequest()
         {
-            Model = "phi3",
+            Model = "phi3:mini",
             Stream = false,
             Messages = new List<Message>(),
             Options = new RequestOptions()
@@ -43,7 +43,7 @@ public class OllamaService : IHostedService
 
         IAsyncEnumerable<ChatResponseStream?> rawResponse = _ollama.ChatAsync(new ChatRequest()
         {
-            Model = "phi3",
+            Model = "phi3:mini",
             Stream = false,
             Messages = tempMessages,
             Options = new RequestOptions()
