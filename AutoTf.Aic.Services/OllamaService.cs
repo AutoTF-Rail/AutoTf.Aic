@@ -29,10 +29,11 @@ public class OllamaService : IHostedService
             Messages = new List<Message>(),
             Options = new RequestOptions()
             {
-                Temperature = .1f
-            }
+                Temperature = .1f,
+            },
+            Format = "json"
         });
-        _previousMessages.Add(new Message(ChatRole.System, "Respond only in json, as short as possible."));
+        _previousMessages.Add(new Message(ChatRole.System, "Respond as short as possible."));
     }
 
     public async Task<string> GetResponse(string message, bool keep = false)
