@@ -32,6 +32,7 @@ public class OllamaService : IHostedService
                 Temperature = .1f
             }
         });
+        _previousMessages.Add(new Message(ChatRole.System, "Respond only in json, as short as possible."));
     }
 
     public async Task<string> GetResponse(string message, bool keep = false)
