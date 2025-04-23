@@ -10,6 +10,7 @@
         <PackageReference Include="AutoTf.Logging" Version="1.0.0-develop-20250407-1018" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0-preview.2.25163.2" />
+        <PackageReference Include="OllamaSharp" Version="5.1.13" />
     </ItemGroup>
 
     <ItemGroup>

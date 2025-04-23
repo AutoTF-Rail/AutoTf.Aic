@@ -1,3 +1,4 @@
+using AutoTf.Aic.Extensions;
 using AutoTf.Aic.Models;
 using AutoTf.Aic.Services;
 using AutoTf.Logging;
@@ -25,7 +26,6 @@ public static class Program
             app.UseWebSockets();
 
             app.Run();
-
         }
         catch (Exception e)
         {
@@ -41,6 +41,8 @@ public static class Program
         builder.Services.AddSingleton(Logger);
         
         builder.Services.AddHostedService<NetworkService>();
+        
+        builder.Services.AddHostedSingleton<OllamaService>();
         
         builder.Services.Configure<HostOptions>(x => x.ShutdownTimeout = TimeSpan.FromSeconds(20));
     }
