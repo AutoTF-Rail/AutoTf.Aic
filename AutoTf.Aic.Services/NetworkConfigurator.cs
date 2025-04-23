@@ -1,5 +1,4 @@
 using System.Net.NetworkInformation;
-using System.Text.RegularExpressions;
 using AutoTf.Aic.Models;
 using AutoTf.Logging;
 
@@ -7,7 +6,7 @@ namespace AutoTf.Aic.Services;
 
 public class NetworkConfigurator
 {
-	private static readonly Logger _logger = Statics.Logger;
+	private static readonly Logger Logger = Statics.Logger;
 	
 	public static bool IsInternetAvailable()
 	{
@@ -26,29 +25,32 @@ public class NetworkConfigurator
 			// ignored
 		}
 
-		_logger.Log("Got no internet connection.");
+		Logger.Log("Got no internet connection.");
 		return false;
 	}
 	
-	public static void SetStaticIpAddress(string ipAddress, string subnetMask, string newInterface = "eth0")
+	public static void SetStaticIpAddress(string ipAddress, string subnetMask, string? newInterface = null)
 	{
 		try
 		{
+			newInterface ??= GetPrimaryEthernetInterface();
+			
 			if (CheckIpAddress(newInterface))
 				return;
-			_logger.Log("Setting Static IP.");
+			
+			Logger.Log("Setting Static IP.");
 			string setIpCommand = $"ip addr add {ipAddress}/{subnetMask} dev {newInterface}";
 			string bringUpInterfaceCommand = $"ip link set {newInterface} up";
 
 			CommandExecuter.ExecuteSilent(setIpCommand, false);
 			CommandExecuter.ExecuteSilent(bringUpInterfaceCommand, false);
 
-			_logger.Log($"Set {ipAddress} on {newInterface} with subnet mask {subnetMask}");
+			Logger.Log($"Set {ipAddress} on {newInterface} with subnet mask {subnetMask}");
 		}
 		catch (Exception ex)
 		{
-			_logger.Log($"An error occurred while setting IP: {ex.Message}");
-			_logger.Log(ex.ToString());
+			Logger.Log($"An error occurred while setting IP: {ex.Message}");
+			Logger.Log(ex.ToString());
 			throw;
 		}
 	}
@@ -60,12 +62,30 @@ public class NetworkConfigurator
 
 		if (output.Contains("inet"))
 		{
-			_logger.Log($"Current IP settings for {interfaceName}:");
-			_logger.Log(output.Split('\n')[1].Trim());
+			Logger.Log($"Current IP settings for {interfaceName}:");
+			Logger.Log(output.Split('\n')[1].Trim());
 			return true;
 		}
 
-		_logger.Log($"{interfaceName} does not have an IP address set.");
+		Logger.Log($"{interfaceName} does not have an IP address set.");
 		return false;
+	}
+	
+	public static string GetPrimaryEthernetInterface()
+	{
+		string command = "ip -o link show | awk -F': ' '{print $2}'";
+		string output = CommandExecuter.ExecuteCommand(command);
+		
+		string[] interfaces = output.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+		foreach (var iface in interfaces)
+		{
+			if (iface.StartsWith("en")) // Most ethernet interfaces start with 'en', e.g. on the jetson orin nano 
+			{
+				return iface.Trim();
+			}
+		}
+
+		throw new Exception("No Ethernet interface found.");
 	}
 }
