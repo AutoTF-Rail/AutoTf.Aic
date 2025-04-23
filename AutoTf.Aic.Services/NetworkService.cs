@@ -9,7 +9,7 @@ namespace AutoTf.Aic.Services;
 public class NetworkService : IHostedService
 {
     private readonly Logger _logger;
-    private readonly Timer _syncTimer = new Timer(15000);
+    private readonly Timer _availabilityTimer = new Timer(15000);
 
     public NetworkService(Logger logger)
     {
@@ -28,8 +28,8 @@ public class NetworkService : IHostedService
     {
         // Call it once on startup.
         CentralBridgeTimerElapsed(null, null!);
-        _syncTimer.Elapsed += CentralBridgeTimerElapsed;
-        _syncTimer.Start();
+        _availabilityTimer.Elapsed += CentralBridgeTimerElapsed;
+        _availabilityTimer.Start();
     }
 
     private async void CentralBridgeTimerElapsed(object? sender, ElapsedEventArgs e)
