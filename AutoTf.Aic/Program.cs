@@ -25,7 +25,7 @@ public static class Program
 
             app.UseWebSockets();
 
-            app.Run();
+            app.Run("http://0.0.0.0:80");
         }
         catch (Exception e)
         {
