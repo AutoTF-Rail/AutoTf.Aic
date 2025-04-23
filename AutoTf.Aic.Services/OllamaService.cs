@@ -30,7 +30,8 @@ public class OllamaService : IHostedService
             Options = new RequestOptions()
             {
                 Temperature = .1f,
-            }
+            },
+            KeepAlive = "-1"
         });
         _previousMessages.Add(new Message(ChatRole.System, "Respond as short as possible."));
     }
@@ -49,6 +50,7 @@ public class OllamaService : IHostedService
             {
                 Temperature = 0.1f
             },
+            KeepAlive = "-1",
             Format = "json"
         });
 
