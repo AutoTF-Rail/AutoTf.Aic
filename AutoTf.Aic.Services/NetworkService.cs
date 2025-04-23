@@ -34,7 +34,8 @@ public class NetworkService : IHostedService
 
     private async void CentralBridgeTimerElapsed(object? sender, ElapsedEventArgs e)
     {
-        bool newFoundState = await HttpHelper.SendGetString("192.168.0.1/information/trainId", false) != "";
+        Console.WriteLine(await HttpHelper.SendGetString("192.168.0.1/information/trainId", false));;
+        bool newFoundState = false;
         
         if (Statics.IsCentralBridgeAvailable != newFoundState)
         {
