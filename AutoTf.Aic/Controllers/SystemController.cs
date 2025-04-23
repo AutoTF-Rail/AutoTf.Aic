@@ -17,6 +17,15 @@ public class SystemController : ControllerBase
         _logger = logger;
         _lifetime = lifetime;
     }
+
+    /// <summary>
+    /// Endpoint to check if the AIC is online
+    /// </summary>
+    [HttpGet]
+    public IActionResult Get()
+    {
+        return Ok(true);
+    }
     
     [HttpGet("available")]
     public ActionResult<bool?> Available()

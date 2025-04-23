@@ -28,6 +28,8 @@ public class NetworkService : IHostedService
     {
         // Call it once on startup.
         CentralBridgeTimerElapsed(null, null!);
+        _logger.Log($"Verbose: Central bridge online state has changed to: Online: {Statics.IsCentralBridgeAvailable}.");
+        
         _availabilityTimer.Elapsed += CentralBridgeTimerElapsed;
         _availabilityTimer.Start();
     }
