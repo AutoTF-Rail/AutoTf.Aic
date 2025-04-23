@@ -21,7 +21,17 @@ public class OllamaService : IHostedService
     private void StartupModel()
     {
         _ollama = new OllamaApiClient(_uri, "phi3");
-        // TODO: Preheat model
+        // TODO: Preheat model like this?
+        _ollama.ChatAsync(new ChatRequest()
+        {
+            Model = "phi3",
+            Stream = false,
+            Messages = new List<Message>(),
+            Options = new RequestOptions()
+            {
+                Temperature = .1f
+            }
+        });
     }
 
     public async Task<string> GetResponse(string message, bool keep = false)
