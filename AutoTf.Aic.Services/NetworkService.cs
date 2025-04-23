@@ -1,24 +1,48 @@
+using System.Timers;
 using AutoTf.Aic.Models;
 using AutoTf.Logging;
 using Microsoft.Extensions.Hosting;
+using Timer = System.Timers.Timer;
 
 namespace AutoTf.Aic.Services;
 
 public class NetworkService : IHostedService
 {
     private readonly Logger _logger;
+    private readonly Timer _syncTimer = new Timer(15000);
 
     public NetworkService(Logger logger)
     {
         _logger = logger;
     }
     
-    public async Task StartAsync(CancellationToken cancellationToken)
+    public Task StartAsync(CancellationToken cancellationToken)
     {
-        await Configure();
+        Configure();
+        StartCentralBridgeTimer();
+        
+        return Task.CompletedTask;
     }
 
-    private async Task Configure()
+    private void StartCentralBridgeTimer()
+    {
+        _syncTimer.Elapsed += CentralBridgeTimerElapsed;
+        _syncTimer.Start();
+    }
+
+    private async void CentralBridgeTimerElapsed(object? sender, ElapsedEventArgs e)
+    {
+        bool newFoundState = await HttpHelper.SendGetString("192.168.0.1/information/trainId", false) != "";
+        
+        if (Statics.IsCentralBridgeAvailable != newFoundState)
+        {
+            _logger.Log($"Verbose: Central bridge online state has changed to: Online: {newFoundState}.");
+        }
+
+        Statics.IsCentralBridgeAvailable = newFoundState;
+    }
+
+    private void Configure()
     {
         try
         {
@@ -27,9 +51,6 @@ public class NetworkService : IHostedService
             NetworkConfigurator.SetStaticIpAddress("192.168.0.3", "24");
         
             _logger.Log("Set local IP to 192.168.0.1/24.");
-
-            if (await HttpHelper.SendGetString("192.168.0.1/information/trainId", false) == "")
-                _logger.Log("Verbose: Central bridge was not detected at 192.168.0.1");
         }
         catch (Exception e)
         {

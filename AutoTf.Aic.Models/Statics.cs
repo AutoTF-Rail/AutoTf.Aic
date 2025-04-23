@@ -6,6 +6,8 @@ namespace AutoTf.Aic.Models;
 public class Statics
 {
     public static readonly Logger Logger = new Logger(true);
+
+    public static bool? IsCentralBridgeAvailable = null;
 	
     public static string GetGitVersion()
     {

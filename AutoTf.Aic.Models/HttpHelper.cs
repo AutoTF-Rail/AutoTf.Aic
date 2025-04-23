@@ -18,8 +18,6 @@ public static class HttpHelper
         }
         catch (Exception)
         {
-            Console.WriteLine($"An error occured while sending a get request to {endpoint}");
-            
             if(reThrow)
                 throw;
             return "";
@@ -37,8 +35,6 @@ public static class HttpHelper
         }
         catch (Exception)
         {
-            Console.WriteLine($"An error occured while sending a post request to {endpoint}");
-            
             if(reThrow)
                 throw;
         }
