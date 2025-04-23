@@ -50,7 +50,7 @@ public class OllamaService : IHostedService
             {
                 Temperature = 0.1f
             },
-            KeepAlive = "24h"
+            KeepAlive = "24h",
             Format = "json"
         });
 
