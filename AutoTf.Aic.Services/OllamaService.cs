@@ -30,8 +30,7 @@ public class OllamaService : IHostedService
             Options = new RequestOptions()
             {
                 Temperature = .1f,
-            },
-            Format = "json"
+            }
         });
         _previousMessages.Add(new Message(ChatRole.System, "Respond as short as possible."));
     }
@@ -49,7 +48,8 @@ public class OllamaService : IHostedService
             Options = new RequestOptions()
             {
                 Temperature = 0.1f
-            }
+            },
+            Format = "json"
         });
 
         string fullResponse = string.Empty;
