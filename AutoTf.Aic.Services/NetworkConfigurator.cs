@@ -63,7 +63,7 @@ public class NetworkConfigurator
 		if (output.Contains("inet"))
 		{
 			Logger.Log($"Current IP settings for {interfaceName}:");
-			Logger.Log(output.Split('\n')[0].Split("brd")[0].Replace("inet", "").Trim());
+			Logger.Log(output.Split('\n').FirstOrDefault(x => x.Contains("inet"))?.Split("brd")[0].Replace("inet", "").Trim()!);
 			return true;
 		}
 
