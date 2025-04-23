@@ -26,6 +26,8 @@ public class NetworkService : IHostedService
 
     private void StartCentralBridgeTimer()
     {
+        // Call it once on startup.
+        CentralBridgeTimerElapsed(null, null!);
         _syncTimer.Elapsed += CentralBridgeTimerElapsed;
         _syncTimer.Start();
     }
