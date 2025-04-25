@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\AutoTf.Aic.Models\AutoTf.Aic.Models.csproj" />
+      <ProjectReference Include="..\SubModules\AutoTf.CentralBridge.Shared\AutoTf.CentralBridge.Shared.Models\AutoTf.CentralBridge.Shared.Models.csproj" />
     </ItemGroup>
 
 </Project>
