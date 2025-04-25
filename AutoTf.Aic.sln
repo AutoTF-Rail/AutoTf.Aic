@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTf.Aic.Timetable", "Aut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTf.FahrplanParser.Models", "SubModules\AutoTf.FahrplanParser\AutoTf.FahrplanParser.Models\AutoTf.FahrplanParser.Models.csproj", "{CCA6E3A4-38A0-4EAD-B097-C181775A608A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTf.CentralBridge.Shared.Models", "SubModules\AutoTf.CentralBridge.Shared\AutoTf.CentralBridge.Shared.Models\AutoTf.CentralBridge.Shared.Models.csproj", "{E5F7718A-806E-4B61-9751-07F6666812C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{CCA6E3A4-38A0-4EAD-B097-C181775A608A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCA6E3A4-38A0-4EAD-B097-C181775A608A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCA6E3A4-38A0-4EAD-B097-C181775A608A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5F7718A-806E-4B61-9751-07F6666812C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F7718A-806E-4B61-9751-07F6666812C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5F7718A-806E-4B61-9751-07F6666812C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5F7718A-806E-4B61-9751-07F6666812C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
