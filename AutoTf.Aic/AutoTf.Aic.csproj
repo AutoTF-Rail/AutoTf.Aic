@@ -14,6 +14,7 @@
       <ProjectReference Include="..\AutoTf.Aic.Extensions\AutoTf.Aic.Extensions.csproj" />
       <ProjectReference Include="..\AutoTf.Aic.Models\AutoTf.Aic.Models.csproj" />
       <ProjectReference Include="..\AutoTf.Aic.Services\AutoTf.Aic.Services.csproj" />
+      <ProjectReference Include="..\AutoTf.Aic.Timetable\AutoTf.Aic.Timetable.csproj" />
     </ItemGroup>
 
 </Project>

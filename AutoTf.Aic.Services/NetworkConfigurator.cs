@@ -1,5 +1,6 @@
 using System.Net.NetworkInformation;
 using AutoTf.Aic.Models;
+using AutoTf.Aic.Models.Static;
 using AutoTf.Logging;
 
 namespace AutoTf.Aic.Services;

@@ -8,6 +8,11 @@
 
     <ItemGroup>
       <PackageReference Include="AutoTf.Logging" Version="1.0.0-develop-20250407-1018" />
+      <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.0-preview.2.25163.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Enums\" />
     </ItemGroup>
 
 </Project>

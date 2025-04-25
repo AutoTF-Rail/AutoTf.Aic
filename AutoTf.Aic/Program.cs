@@ -1,6 +1,8 @@
 using AutoTf.Aic.Extensions;
 using AutoTf.Aic.Models;
+using AutoTf.Aic.Models.Interfaces;
 using AutoTf.Aic.Services;
+using AutoTf.Aic.Timetable;
 using AutoTf.Logging;
 
 namespace AutoTf.Aic;
@@ -40,9 +42,12 @@ public static class Program
         
         builder.Services.AddSingleton(Logger);
         
+        
         builder.Services.AddHostedService<NetworkService>();
         
+        
         builder.Services.AddHostedSingleton<OllamaService>();
+        builder.Services.AddHostedSingleton<ITimetableManager, TimetableManager>();
         
         builder.Services.Configure<HostOptions>(x => x.ShutdownTimeout = TimeSpan.FromSeconds(20));
     }

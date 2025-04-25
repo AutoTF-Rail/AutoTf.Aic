@@ -1,5 +1,6 @@
 using AutoTf.Aic.Extensions;
 using AutoTf.Aic.Models;
+using AutoTf.Aic.Models.Static;
 using AutoTf.Logging;
 using Microsoft.AspNetCore.Mvc;
 
