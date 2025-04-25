@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTf.Aic.Models", "AutoTf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTf.Aic.Services", "AutoTf.Aic.Services\AutoTf.Aic.Services.csproj", "{8AD9564A-D1C5-4FC3-A628-74C2A6BE4155}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTf.Aic.Timetable", "AutoTf.Aic.Timetable\AutoTf.Aic.Timetable.csproj", "{8997B167-899F-4B9A-A27D-AB2D228F2C4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTf.FahrplanParser.Models", "SubModules\AutoTf.FahrplanParser\AutoTf.FahrplanParser.Models\AutoTf.FahrplanParser.Models.csproj", "{CCA6E3A4-38A0-4EAD-B097-C181775A608A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{8AD9564A-D1C5-4FC3-A628-74C2A6BE4155}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AD9564A-D1C5-4FC3-A628-74C2A6BE4155}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AD9564A-D1C5-4FC3-A628-74C2A6BE4155}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8997B167-899F-4B9A-A27D-AB2D228F2C4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8997B167-899F-4B9A-A27D-AB2D228F2C4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8997B167-899F-4B9A-A27D-AB2D228F2C4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8997B167-899F-4B9A-A27D-AB2D228F2C4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCA6E3A4-38A0-4EAD-B097-C181775A608A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCA6E3A4-38A0-4EAD-B097-C181775A608A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCA6E3A4-38A0-4EAD-B097-C181775A608A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCA6E3A4-38A0-4EAD-B097-C181775A608A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
