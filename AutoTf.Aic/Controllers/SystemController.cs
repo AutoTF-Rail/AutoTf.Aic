@@ -23,9 +23,9 @@ public class SystemController : ControllerBase
     /// Endpoint to check if the AIC is online
     /// </summary>
     [HttpGet]
-    public IActionResult Get()
+    public ActionResult<bool> Get()
     {
-        return Ok(true);
+        return true;
     }
     
     [HttpGet("available")]
